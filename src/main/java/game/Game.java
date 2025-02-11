@@ -26,6 +26,8 @@ public class Game extends JFrame implements Runnable {
    public List<Texture> textures;
    public Camera camera;
    public Screen screen;
+   private int WINDOW_WIDTH = 1152;
+   private int WINDOW_HEIGHT = 864;
 
    public Game() {
       this.setThread();
@@ -39,9 +41,9 @@ public class Game extends JFrame implements Runnable {
    }
 
    private void setWindow() {
-      this.image = new BufferedImage(800, 600, 1);
+      this.image = new BufferedImage(this.WINDOW_WIDTH, this.WINDOW_HEIGHT, 1);
       this.pixels = ((DataBufferInt)this.image.getRaster().getDataBuffer()).getData();
-      this.setSize(800, 600);
+      this.setSize(this.WINDOW_WIDTH, this.WINDOW_HEIGHT);
       this.setResizable(false);
       this.setTitle("RayCast Me a Dream");
       this.setDefaultCloseOperation(3);
@@ -54,7 +56,7 @@ public class Game extends JFrame implements Runnable {
       this.textures = Texture.getAvailableTextures();
       this.camera = new Camera(4.5D, 4.5D, 1.0D, 0.0D, 0.0D, -0.66D);
       this.addKeyListener(this.camera);
-      this.screen = new Screen(map, this.textures, this.mapWidth, this.mapHeight, 800, 600);
+      this.screen = new Screen(map, this.textures, this.mapWidth, this.mapHeight, this.WINDOW_WIDTH, this.WINDOW_HEIGHT);
    }
 
    private synchronized void start() {
@@ -67,8 +69,8 @@ public class Game extends JFrame implements Runnable {
 
       try {
          this.thread.join();
-      } catch (InterruptedException var2) {
-         var2.printStackTrace();
+      } catch (InterruptedException ex) {
+         ex.printStackTrace();
       }
 
    }

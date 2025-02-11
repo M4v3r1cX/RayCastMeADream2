@@ -28,22 +28,22 @@ public class Camera implements KeyListener {
 
    public void update(int[][] map) {
       if (this.forward) {
-         if (map[(int)(this.xPos + this.xDir * 0.09D)][(int)this.yPos] == 0) {
-            this.xPos += this.xDir * 0.09D;
+         if (map[(int)(this.xPos + this.xDir * MOVE_SPEED)][(int)this.yPos] == 0) {
+            this.xPos += this.xDir * MOVE_SPEED;
          }
 
-         if (map[(int)this.xPos][(int)(this.yPos + this.yDir * 0.09D)] == 0) {
-            this.yPos += this.yDir * 0.09D;
+         if (map[(int)this.xPos][(int)(this.yPos + this.yDir * MOVE_SPEED)] == 0) {
+            this.yPos += this.yDir * MOVE_SPEED;
          }
       }
 
       if (this.back) {
-         if (map[(int)(this.xPos - this.xDir * 0.09D)][(int)this.yPos] == 0) {
-            this.xPos -= this.xDir * 0.09D;
+         if (map[(int)(this.xPos - this.xDir * MOVE_SPEED)][(int)this.yPos] == 0) {
+            this.xPos -= this.xDir * MOVE_SPEED;
          }
 
-         if (map[(int)this.xPos][(int)(this.yPos - this.yDir * 0.09D)] == 0) {
-            this.yPos -= this.yDir * 0.09D;
+         if (map[(int)this.xPos][(int)(this.yPos - this.yDir * MOVE_SPEED)] == 0) {
+            this.yPos -= this.yDir * MOVE_SPEED;
          }
       }
 
@@ -51,22 +51,22 @@ public class Camera implements KeyListener {
       double oldxPlane;
       if (this.right) {
          oldxDir = this.xDir;
-         this.xDir = this.xDir * Math.cos(-0.06D) - this.yDir * Math.sin(-0.06D);
-         this.yDir = oldxDir * Math.sin(-0.06D) + this.yDir * Math.cos(-0.06D);
+         this.xDir = this.xDir * Math.cos(-ROTATION_SPEED) - this.yDir * Math.sin(-ROTATION_SPEED);
+         this.yDir = oldxDir * Math.sin(-ROTATION_SPEED) + this.yDir * Math.cos(-ROTATION_SPEED);
          oldxPlane = this.xPlane;
-         this.xPlane = this.xPlane * Math.cos(-0.06D) - this.yPlane * Math.sin(-0.06D);
-         this.yPlane = oldxPlane * Math.sin(-0.06D) + this.yPlane * Math.cos(-0.06D);
+         this.xPlane = this.xPlane * Math.cos(-ROTATION_SPEED) - this.yPlane * Math.sin(-ROTATION_SPEED);
+         this.yPlane = oldxPlane * Math.sin(-ROTATION_SPEED) + this.yPlane * Math.cos(-ROTATION_SPEED);
       }
 
       if (this.left) {
          oldxDir = this.xDir;
-         this.xDir = this.xDir * Math.cos(0.06D) - this.yDir * Math.sin(0.06D);
-         this.yDir = oldxDir * Math.sin(0.06D) + this.yDir * Math.cos(0.06D);
+         this.xDir = this.xDir * Math.cos(ROTATION_SPEED) - this.yDir * Math.sin(0.06D);
+         this.yDir = oldxDir * Math.sin(ROTATION_SPEED) + this.yDir * Math.cos(0.06D);
          oldxPlane = this.xPlane;
-         this.xPlane = this.xPlane * Math.cos(0.06D) - this.yPlane * Math.sin(0.06D);
-         this.yPlane = oldxPlane * Math.sin(0.06D) + this.yPlane * Math.cos(0.06D);
+         this.xPlane = this.xPlane * Math.cos(ROTATION_SPEED) - this.yPlane * Math.sin(ROTATION_SPEED);
+         this.yPlane = oldxPlane * Math.sin(ROTATION_SPEED) + this.yPlane * Math.cos(ROTATION_SPEED);
       }
-
+      System.out.println("xDir: " + this.xDir + " - yDir: " + this.yDir + " - xPos: " + this.xPos + " - yPos: " + this.yPos);
    }
 
    public void keyPressed(KeyEvent key) {
