@@ -1,9 +1,5 @@
-package game;
+package com.bsodsoftware.raycastmeadream.game;
 
-import engine.Camera;
-import engine.Maps;
-import engine.Screen;
-import engine.Texture;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -13,6 +9,11 @@ import java.awt.image.DataBufferInt;
 import java.awt.image.ImageObserver;
 import java.util.List;
 import javax.swing.JFrame;
+
+import com.bsodsoftware.raycastmeadream.engine.Camera;
+import com.bsodsoftware.raycastmeadream.engine.Maps;
+import com.bsodsoftware.raycastmeadream.engine.Screen;
+import com.bsodsoftware.raycastmeadream.engine.Texture;
 
 public class Game extends JFrame implements Runnable {
    private static final long serialVersionUID = 1L;

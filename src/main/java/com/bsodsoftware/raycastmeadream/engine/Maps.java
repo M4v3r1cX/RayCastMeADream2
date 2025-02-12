@@ -1,4 +1,4 @@
-package engine;
+package com.bsodsoftware.raycastmeadream.engine;
 
 public class Maps {
    public static int[][] getE1M1() {

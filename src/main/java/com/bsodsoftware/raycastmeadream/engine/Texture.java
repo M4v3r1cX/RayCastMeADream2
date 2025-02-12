@@ -1,4 +1,4 @@
-package engine;
+package com.bsodsoftware.raycastmeadream.engine;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
